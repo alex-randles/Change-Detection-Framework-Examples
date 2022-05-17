@@ -1,0 +1,296 @@
+@prefix rr: <http://www.w3.org/ns/r2rml#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
+@prefix dc: <http://purl.org/dc/terms/> .
+@prefix testv: <http://www.txample.com/people/voc/>.
+@prefix testd: <http://www.txample.com/people/data/>.
+@prefix cdo: <https://change-detection-ontology.adaptcentre.ie/#> . 
+@prefix lode: <http://linkedevents.org/ontology/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>.
+@prefix time: <http://www.w3.org/2006/time#> . 
+@prefix rei-action: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiAction.owl#> .
+@prefix rei-entity: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#> .
+@prefix rei-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#> .
+@prefix rei-denontic: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#> .
+@prefix rei-constraint: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#> .
+@prefix rei-meta-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiMetaPolicy.owl#> .
+@prefix ex: <http://www.example.com/> . 
+
+
+<#NotificationPolicy>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/notificationPolicy/{USER_ID}";
+        rr:class rei-policy:Policy;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-policy:desc ;
+        rr:objectMap  [
+            rr:template "Notification policy for user {USER_ID}";
+                              rr:termType rr:Literal;
+        ];
+   ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-policy:grants  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/policyObligation/{USER_ID}";
+        ];
+   ];
+
+    rr:predicateObjectMap [
+        rr:predicate  cdo:detectionStart  ;
+        rr:objectMap  [
+            rr:column "DETECTION_START";
+            rr:datatype xsd:dateTime;
+        ];
+   ];
+
+    rr:predicateObjectMap [
+        rr:predicate  cdo:detectionEnd  ;
+        rr:objectMap  [
+            rr:column "DETECTION_END";
+            rr:datatype xsd:dateTime;
+        ];
+   ];
+.
+
+<#PolicyObligation>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/policyObligation/{USER_ID}";
+        rr:class rei-denontic:Obligation;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-policy:actor  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/userActor/{USER_ID}";
+        ];
+        rr:objectMap  [
+            rr:constant cdo:softwareAgent;
+        ];
+   ];
+
+
+   rr:predicateObjectMap [
+        rr:predicate  rei-denontic:startingConstraint  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/notificationConstraint/{USER_ID}";
+        ];
+   ];
+
+   rr:predicateObjectMap [
+        rr:predicate  rei-denontic:obligedTo  ;
+        rr:objectMap  [
+            rr:constant cdo:softwareAgent;
+        ];
+   ];
+
+   rr:predicateObjectMap [
+        rr:predicate  rei-denontic:action  ;
+        rr:objectMap  [
+            rr:constant cdo:sendNotification;
+        ];
+   ];
+.
+
+<#UserActor>
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/userActor/{USER_ID}";
+        rr:class rei-entity:Agent;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+.
+
+<#NotificationConstraint>
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/notificationConstraint/{USER_ID}";
+        rr:class rei-constraint:And;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-constraint:first  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/insertChangeConstraint/{USER_ID}";
+        ];
+   ];
+
+   rr:predicateObjectMap [
+        rr:predicate  rei-constraint:second  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/deleteChangeConstraint/{USER_ID}";
+        ];
+   ];
+
+       rr:predicateObjectMap [
+        rr:predicate  rei-constraint:third  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/moveChangeConstraint/{USER_ID}";
+        ];
+   ];
+
+   rr:predicateObjectMap [
+        rr:predicate  rei-constraint:fourth  ;
+        rr:objectMap  [
+            rr:template "http://www.example.com/updateChangeConstraint/{USER_ID}";
+        ];
+   ];
+.
+
+<#InsertChangeConstraint>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/insertChangeConstraint/{USER_ID}";
+        rr:class rei-constraint:SimpleConstraint;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-constraint:subject  ;
+        rr:objectMap  [
+            rr:constant cdo:InsertSourceData;
+        ];
+   ];
+
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:predicate  ;
+        rr:objectMap  [
+            rr:constant cdo:hasThreshold;
+        ];
+   ];
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:object  ;
+        rr:objectMap  [
+            rr:column "INSERT_THRESHOLD";
+        ];
+   ];
+.
+
+<#DeleteChangeConstraint>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/deleteChangeConstraint/{USER_ID}";
+        rr:class rei-constraint:SimpleConstraint;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-constraint:subject  ;
+        rr:objectMap  [
+            rr:constant cdo:DeleteSourceData;
+        ];
+   ];
+
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:predicate  ;
+        rr:objectMap  [
+            rr:constant cdo:hasThreshold;
+        ];
+   ];
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:object  ;
+        rr:objectMap  [
+            rr:column "DELETE_THRESHOLD";
+        ];
+   ];
+.
+
+
+<#MoveChangeConstraint>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/moveChangeConstraint/{USER_ID}";
+        rr:class rei-constraint:SimpleConstraint;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-constraint:subject  ;
+        rr:objectMap  [
+            rr:constant cdo:MoveSourceData;
+        ];
+   ];
+
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:predicate  ;
+        rr:objectMap  [
+            rr:constant cdo:hasThreshold;
+        ];
+   ];
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:object  ;
+        rr:objectMap  [
+            rr:column "MOVE_THRESHOLD";
+        ];
+   ];
+.
+
+<#UpdateChangeConstraint>
+
+    rr:logicalTable [ rr:tableName "NOTIFICATION_DETAILS"];
+
+    rr:subjectMap [
+        rr:template "http://www.example.com/updateChangeConstraint/{USER_ID}";
+        rr:class rei-constraint:SimpleConstraint;
+        rr:graphMap [ rr:template "http://www.example.com/notificationGraph/user/{USER_ID}" ];
+
+    ];
+
+    rr:predicateObjectMap [
+        rr:predicate  rei-constraint:subject  ;
+        rr:objectMap  [
+            rr:constant cdo:UpdateSourceData;
+        ];
+   ];
+
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:predicate  ;
+        rr:objectMap  [
+            rr:constant cdo:hasThreshold;
+        ];
+   ];
+
+  rr:predicateObjectMap [
+        rr:predicate  rei-constraint:object  ;
+        rr:objectMap  [
+            rr:column "UPDATE_THRESHOLD";
+        ];
+   ];.
+
+
+
