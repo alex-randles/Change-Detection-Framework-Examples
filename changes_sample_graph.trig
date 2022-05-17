@@ -1,0 +1,66 @@
+<http://www.example.com/changesGraph/user/1> {
+    <http://www.example.com/insertChange/6>
+            a       <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/6> .
+    
+    <http://www.example.com/detectionTime/2>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+    
+    <http://www.example.com/changeLog/1>
+            a       <https://change-detection-ontology.adaptcentre.ie/#ChangeLog> ;
+            <https://change-detection-ontology.adaptcentre.ie/#hasChange>
+                    <http://www.example.com/deleteChange/4> , <http://www.example.com/deleteChange/2> , <http://www.example.com/updateChange/3> , <http://www.example.com/updateChange/1> , <http://www.example.com/insertChange/6> , <http://www.example.com/insertChange/5> .
+    
+    <http://www.example.com/updateChange/3>
+            a       <https://change-detection-ontology.adaptcentre.ie/#UpdateSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/3> .
+    
+    <http://www.example.com/detectionTime/5>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+    
+    <http://www.example.com/deleteChange/4>
+            a       <https://change-detection-ontology.adaptcentre.ie/#DeleteSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/4> .
+    
+    <http://www.example.com/updateChange/1>
+            a       <https://change-detection-ontology.adaptcentre.ie/#UpdateSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/1> .
+    
+    <http://www.example.com/detectionTime/3>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+    
+    <http://www.example.com/insertChange/5>
+            a       <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/5> .
+    
+    <http://www.example.com/deleteChange/2>
+            a       <https://change-detection-ontology.adaptcentre.ie/#DeleteSourceData> ;
+            <http://linkedevents.org/ontology/atTime>
+                    <http://www.example.com/detectionTime/2> .
+    
+    <http://www.example.com/detectionTime/1>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+    
+    <http://www.example.com/detectionTime/6>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+    
+    <http://www.example.com/detectionTime/4>
+            a       <http://www.w3.org/2006/time#Instant> ;
+            <http://www.w3.org/2006/time#inXSDDateTimeStamp>
+                    "2002-09-24-06:00"^^<http://www.w3.org/2001/XMLSchema#dateTimeStamp> .
+}

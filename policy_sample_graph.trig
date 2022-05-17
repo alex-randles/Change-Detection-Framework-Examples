@@ -1,0 +1,96 @@
+<http://www.example.com/notificationGraph/user/1> {
+    <http://www.example.com/userActor/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiEntity.owl#Agent> .
+    
+    <http://www.example.com/policyObligation/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#Obligation> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#action>
+                    <https://change-detection-ontology.adaptcentre.ie/#sendNotification> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#obligedTo>
+                    <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiDeontic.owl#startingConstraint>
+                    <http://www.example.com/notificationConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#actor>
+                    <http://www.example.com/userActor/1> , <https://change-detection-ontology.adaptcentre.ie/#softwareAgent> .
+    
+    <http://www.example.com/insertChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "2" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#InsertSourceData> .
+    
+    <http://www.example.com/notificationPolicy/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#Policy> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#desc>
+                    "Notification policy for user 1" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#grants>
+                    <http://www.example.com/policyObligation/1> ;
+            <https://change-detection-ontology.adaptcentre.ie/#detectionEnd>
+                    "2022-05-13"^^<http://www.w3.org/2001/XMLSchema#dateTime> ;
+            <https://change-detection-ontology.adaptcentre.ie/#detectionStart>
+                    "2022-05-17"^^<http://www.w3.org/2001/XMLSchema#dateTime> .
+    
+    <http://www.example.com/updateChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "0" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#UpdateSourceData> .
+    
+    <http://www.example.com/moveChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "2" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#MoveSourceData> .
+    
+    <http://www.example.com/deleteChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "0" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#DeleteSourceData> .
+    
+    <http://www.example.com/notificationConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#And> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#fifth>
+                    <http://www.example.com/mergeChangeConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#first>
+                    <http://www.example.com/insertChangeConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#fourth>
+                    <http://www.example.com/updateChangeConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#second>
+                    <http://www.example.com/deleteChangeConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#sixth>
+                    <http://www.example.com/datatypeChangeConstraint/1> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#third>
+                    <http://www.example.com/moveChangeConstraint/1> .
+    
+    <http://www.example.com/mergeChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "0" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#MergeSourceData> .
+    
+    <http://www.example.com/datatypeChangeConstraint/1>
+            a       <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#SimpleConstraint> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#object>
+                    "0" ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#predicate>
+                    <https://change-detection-ontology.adaptcentre.ie/#hasThreshold> ;
+            <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#subject>
+                    <https://change-detection-ontology.adaptcentre.ie/#DatatypeSourceData> .
+}
+

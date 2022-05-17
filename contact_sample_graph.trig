@@ -1,0 +1,8 @@
+<http://www.example.com/contactDetailsGraph/user/1> {
+    <http://www.example.com/user/1>
+            a       <http://xmlns.com/foaf/0.1/Person> ;
+            <http://xmlns.com/foaf/0.1/mbox>
+                    "alexrandles0@gmail.com" .
+}
+
+
