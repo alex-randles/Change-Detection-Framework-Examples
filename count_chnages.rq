@@ -1,0 +1,33 @@
+PREFIX changes-graph: <http://www.example.com/changesGraph/user/>
+PREFIX notification-graph: <http://www.example.com/notificationGraph/user/>
+PREFIX contact-graph: <http://www.example.com/contactDetailsGraph/user/>
+PREFIX cdo: <https://change-detection-ontology.adaptcentre.ie/#>
+PREFIX rei-constraint: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiConstraint.owl#>
+PREFIX rei-policy: <http://www.cs.umbc.edu/~lkagal1/rei/ontologies/ReiPolicy.owl#>
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+
+# GET COUNT FOR EACH CHANGE TYPE
+SELECT ?changeType (count(?change) AS ?count)
+WHERE
+{
+  # QUERY USER GRAPH
+  GRAPH changes-graph:1 {
+    # GET DIFFERENT CHANGE TYPES
+    VALUES ?changeType
+    {
+               cdo:InsertSourceData
+               cdo:DeleteSourceData
+               cdo:MoveSourceData
+               cdo:UpdateSourceData
+               cdo:MergeSourceData
+               cdo:DatatypeSourceData
+             }
+            # GET EACH CHANGE FROM LOG
+             ?changeLog a cdo:ChangeLog ;
+                        cdo:hasChange ?change.
+             ?change a ?changeType
+  }
+}
+GROUP BY ?changeType
