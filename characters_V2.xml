@@ -11,9 +11,9 @@
 	<FirstName>Fernando</FirstName>
 	<LastName>Alonso</LastName>
 
-      	<Testing>Villa</Testing>
-	<Testing2>Villa</Testing2>
-	<Testing3>Villa</Testing3>
+      	<Test>Villa</Test>
+	<Test1>Villa</Test1>
+	<Test2>Villa</Test2>
   </Student>
   <Student>
     <ID>12</ID>
