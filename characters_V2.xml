@@ -15,8 +15,8 @@
     <ID>12</ID>
 	<FirstName>David</FirstName>
 	<LastName>Villa</LastName>
-	<LastName>Villa</LastName>
-	<LastName>Villa</LastName>
+	<Test>Villa</Test>
+	<Testing>Villa</Testing>
   </Student>
 </Students>
 
