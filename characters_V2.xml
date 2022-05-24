@@ -10,6 +10,10 @@
     <ID>11</ID>
 	<FirstName>Fernando</FirstName>
 	<LastName>Alonso</LastName>
+
+      	<Testing>Villa</Testing>
+	<Testing2>Villa</Testing2>
+	<Testing3>Villa</Testing3>
   </Student>
   <Student>
     <ID>12</ID>
