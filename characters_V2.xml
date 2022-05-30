@@ -3,51 +3,20 @@
 <Students>
   <Student>
     <ID>10</ID>
-	<FirstName>Venus</FirstName>
-	<LastName>Williams</LastName>
-	  <test1>
-		  djhsdhs
-	  </test1>
-	  	  <test2>
-		  djhsdhs
-	  </test2>
-	  	  <test3>
-		  djhsdhs
-	  </test3>
-	  	  <test56>
-		  djhsdhs
-	  </test56>
-
-	  	  	  <test55>
-		  djhsdhs
-	  </test55>
-
-	   	  	  <test99>
-		  djhsdhs
-	  </test99>
+    <FirstName>Venus</FirstName>
+    <LastName>Williams</LastName>
   </Student>
   <Student>
     <ID>11</ID>
-	<FirstName>Fernando</FirstName>
-	<LastName>Alonso</LastName>
-
-      	<Test>Villa</Test>
-	<Test1>Villa</Test1>
-	<Test2>Villa</Test2>
+    <FirstName>Fernando</FirstName>
+    <LastName>Alonso</LastName>
   </Student>
   <Student>
     <ID>12</ID>
-	<FirstName>David</FirstName>
-	<LastName>Villa</LastName>
-	<Testing>Villa</Testing>
-	<Testing2>Villa</Testing2>
-	<Testing3>Villa</Testing3>
-	
-		<Testing5>Villa</Testing5>
-		<Testing10>Villa</Testing10>
-		<Testing11>Villa</Testing11>
-		
-	<Testing6>Villa</Testing6>
+    <FirstName>David</FirstName>
+    <LastName>Villa</LastName>
+    <Test>Villa</Test>
+    <Testing>Villa</Testing>
   </Student>
 </Students>
 
