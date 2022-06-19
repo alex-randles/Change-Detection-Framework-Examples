@@ -4,7 +4,8 @@
   <Student>
     <ID>10</ID>
     <FirstName>Venus</FirstName>
-    <LastName>Williams</LastName>
+    <Affliation>Trinity College Dublin</Affliation>
+    <Location>Dublin, Ireland</Location>
   </Student>
   <Student>
     <ID>11</ID>
