@@ -1,40 +1,27 @@
 <?xml version="1.0"?>
 
-<students1>
+<students>
   <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
+    <ID>10</ID>
+    <Name>Venus Williams</Name>
+    <Sport>100</Sport>
   </student>
+  <student>
+    <ID>20</ID>
+    <Name>Demi Moore</Name>
+  </student>
+</students>
 
-<students2>
-  <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
-  </student>
-</students2>
 
-
-<students3>
-  <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
-  </student>
-  <students3>
-  <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
-  </student>
-</students3>
-
-<students4>
-  <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
-  </student>
-  <student>
-    <Name>Venus</Name>
-    <Test>hshsh</Test>
-  </student>
-</students4>
-
-</students1>
+<peoples>
+  <people>
+    <ID>100</ID>
+    <Gender>Venus Williams</Gender>
+    <Married>No</Married>
+  </people>
+  <people>
+    <ID>200</ID>
+    <Gender>Demi Moore</Gender>
+    <Married>No</Married>
+  </people>
+</peoples>
